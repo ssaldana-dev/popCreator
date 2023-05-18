@@ -1,0 +1,9 @@
+html {
+    background-color: #1f1f1f;
+    color: #D2D2D2;
+}
+.pop-generator {
+    width: 792px;
+    height: 612px;
+    border: #D2D2D2 solid 2px;
+}
