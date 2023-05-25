@@ -11,9 +11,28 @@
     <header></header>
     <main>
         <h1>POP generator</h1>
+        <!-- <form action=""> -->
+            <label for=""></label>
+            <input type="number" id="sku" placeholder="ej: 100065973" />
+            <label for=""></label>
+            <input type="text" id="product_name" placeholder="ej: Marc Permanentes Sharpie" />
+            <label for=""></label>
+            <input type="number" id="regular_price" placeholder="ej: 253" />
+            <label for=""></label>
+            <input type="number" id="promotional_price" placeholder="ej: 152.80" />
+            <label for=""></label>
+            <input type="date" id="starting_date" />
+            <input type="date" id="ending_date" />
+            <button id="add_button">Add</button>
+            <button id="create_button">Create</button>
+        <!-- </form> -->
+        <div id="container">
+
+        </div>
         <canvas width="3508" height="2480" class="pop-generator" id="POPs"></canvas>
     </main>
     <footer></footer>
-    <script src="./code.js"></script>
+    <script src="./formCode.js"></script>
+    <script src="./canvasCode.js"></script>
 </body>
 </html>

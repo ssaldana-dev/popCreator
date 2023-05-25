@@ -1,9 +1,12 @@
 html {
     background-color: #1f1f1f;
+    font-family: 'Helvetica';
     color: #D2D2D2;
 }
 .pop-generator {
+    /* width: 0;
+    height: 0; */
     width: 792px;
-    height: 612px;
+    /* height: 612px; */
     /* border: #D2D2D2 solid 2px; */
 }
