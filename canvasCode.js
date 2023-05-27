@@ -1,16 +1,38 @@
 const canvas = document.querySelector('#POPs');
 const ctx = canvas.getContext('2d');
 
-const popWidth = 601.6;
+const popWidth = 591.6;
 const lineHeight = 40;
 
 const background = new Image();
 background.src = './base.png';
 
-background.onload = function () {
-    ctx.drawImage(background, 0, 0);
-}
+const rosePop = new Image();
+rosePop.src = './rose-pop.png';
 
+const bluePop = new Image();
+bluePop.src = './blue-pop.png';
+
+const greenPop = new Image();
+greenPop.src = './green-pop.png';
+
+ctx.fillStyle = '#FFFFFF';
+ctx.fillRect(0,0,3508,2480);
+
+// background.onload = function () {
+//     ctx.drawImage(background, 0, 0);
+// }
+
+
+function addPopImg (color, x, y) {
+    if (color == 'rose') {
+        ctx.drawImage(rosePop, x, y);
+    } else if (color == 'blue') {
+        ctx.drawImage(bluePop, x, y);
+    } else if (color == 'green') {
+        ctx.drawImage(greenPop ,x ,y);
+    }
+}
 function writeStaticPhrases (x, y) {
     ctx.textAlign = 'center';
     ctx.fillStyle = '#000000';

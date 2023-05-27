@@ -1,12 +1,178 @@
+:root {
+    --prussian-blue: #27374D;
+    --paynes-gray: #526D82;
+    --cadet-gray: #9DB2BF;
+    --alice-blue: #DDE6ED;
+    --generator-width: 750px;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;;
+}
 html {
-    background-color: #1f1f1f;
+    font-size: 62.5%;
     font-family: 'Helvetica';
-    color: #D2D2D2;
+}
+main {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--prussian-blue);
+    color: var(--alice-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.webTitle {
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.2rem;
+}
+.generatorInput {
+    width: var(--generator-width);
+}
+.generatorInput div {
+    display: flex;
+    align-items: center;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    width: 100%;
+    height: 5rem;
+}
+.generatorInput div p {
+    display: inline-block;
+    width: 15%;
+    font-size: 1.7rem;
+}
+.generatorInput div input {
+    padding-left: 2rem;
+    width: 84%;
+    border: none;
+    border-bottom: #DDE6ED .2rem solid;
+    background-color: var(--prussian-blue);
+    color: var(--alice-blue);
+    font-size: 1.8rem;
+    text-align: center;
+}
+.generatorInput div input::placeholder {
+    color: var(--cadet-gray);
+}
+.generatorInput div input:focus {
+    outline: none;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.button {
+    width: 16rem;
+    height: 5rem;
+    border: #DDE6ED 2px solid;
+    border-radius: 5rem;
+    background-color: var(--prussian-blue);
+    font-size: 1.8rem;
+    color: var(--alice-blue);
+}
+.button:hover {
+    cursor: pointer;
+    background-color: var(--paynes-gray);
+    transition: 250ms;
+}
+
+.pops {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    width: var(--generator-width);
+    height: 100%;
+    border: var(--alice-blue) 2px solid;
+    border-radius: .5rem;
+    font-size: 1.4rem;
+    overflow: auto;
+}
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+.pops::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.pops::-webkit-scrollbar:vertical {
+    width:9px;
+}
+
+.pops::-webkit-scrollbar-button:increment,.pops::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.pops::-webkit-scrollbar:horizontal {
+    height: 5px;
+}
+
+.pops::-webkit-scrollbar-thumb {
+    background-color: var(--cadet-gray);
+    border-radius: 20px;
+    border: 2px solid var(--alice-blue);
+}
+
+.pops::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+.pops_informationHeader {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    height: 2rem;
+    border-bottom: var(--alice-blue) 2px dashed;
+    font-size: 1.4rem;
+}
+.pops_informationHeader span {
+    flex-grow: 1;
+    text-align: center;
+    width: 10%;
+}
+.pops_informationHeader .pops_informationHeader_name {
+    flex-grow: 1.5;
+    width: 30%;
+}
+.pops_information {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    height: 2rem;
+}
+.pops_information span {
+    flex-grow: 1;
+    text-align: center;
+    width: 10%;
+    height: 2.5rem;
+    overflow: hidden;
+}
+.pops_information .pops_information_name {
+    flex-grow: 1.5;
+    width: 30%;
 }
 .pop-generator {
-    /* width: 0;
-    height: 0; */
-    width: 792px;
+    width: 0;
+    height: 0;
+    /* width: 792px; */
     /* height: 612px; */
     /* border: #D2D2D2 solid 2px; */
 }

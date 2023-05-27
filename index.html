@@ -10,24 +10,47 @@
 <body>
     <header></header>
     <main>
-        <h1>POP generator</h1>
-        <!-- <form action=""> -->
-            <label for=""></label>
-            <input type="number" id="sku" placeholder="ej: 100065973" />
-            <label for=""></label>
-            <input type="text" id="product_name" placeholder="ej: Marc Permanentes Sharpie" />
-            <label for=""></label>
-            <input type="number" id="regular_price" placeholder="ej: 253" />
-            <label for=""></label>
-            <input type="number" id="promotional_price" placeholder="ej: 152.80" />
-            <label for=""></label>
-            <input type="date" id="starting_date" />
-            <input type="date" id="ending_date" />
-            <button id="add_button">Add</button>
-            <button id="create_button">Create</button>
-        <!-- </form> -->
-        <div id="container">
+        <h1 class="webTitle">POP generator</h1>
+        <div class="generatorInput">
+            <div>
+                <p>SKU</p>
+                <input type="number" id="sku" placeholder="000035452" />
+            </div>
+            <div>
+                <p>Descripción</p>
+                <input type="text" id="product_name" placeholder="PAPEL PREMIUM OD CARTA RESMA" />
 
+            </div>
+            <div>
+                <p>Precio</p>
+                <input class="generatorInput_inputPrice" type="number" id="regular_price" placeholder="169" />
+            </div>
+            <div>
+                <p>Precio promocional</p>
+                <input class="price" type="number" id="promotional_price" placeholder="139.80" />
+            </div>
+            <div>
+                <p>Fecha inicial</p>
+                <input type="date" id="starting_date" />
+            </div>
+            <div>
+                <p>Fecha final</p>
+                <input type="date" id="ending_date" />
+            </div>
+            <div class="buttons">
+                <button class="button" id="add_button">Add</button>
+                <button class="button" id="create_button">Create</button>
+            </div>
+        </div>
+        <div id="pops_information_container" class="pops">
+            <div class="pops_informationHeader">
+                <span>SKU</span>
+                <span class="pops_informationHeader_name">Nombre</span>
+                <span>Precio</span>
+                <span>Promocional</span>
+                <span>Inicio</span>
+                <span>Finalización</span>
+            </div>
         </div>
         <canvas width="3508" height="2480" class="pop-generator" id="POPs"></canvas>
     </main>

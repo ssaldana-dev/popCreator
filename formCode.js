@@ -8,6 +8,8 @@ let endDateObj = document.querySelector('#ending_date');
 let addPopButton = document.querySelector('#add_button');
 let createPopsButton = document.querySelector('#create_button');
 
+const popInfoContainer = document.querySelector('#pops_information_container')
+
 addPopButton.addEventListener('click', addPop);
 createPopsButton.addEventListener('click', writePops);
 
@@ -15,7 +17,12 @@ function writePops () {
     let i = 0;
     let actualX = 331;
     let actualY = 0;
+    let popX = 0;
+    let popY = 0;
+    let popColor = 'rose';
+
     for (actualPop of pops) {
+        addPopImg(popColor, popX, popY);
         writeStaticPhrases(actualX, actualY);
         writeSKU(actualX, actualPop.sku);
         writeProductName(actualPop.name, actualX, actualY);
@@ -23,146 +30,51 @@ function writePops () {
         writePromotionalPrice(actualPop.promotionalPrice, actualX, actualY);
         writeValidity(actualPop.startDate, actualPop.endDate, actualX, actualY);
         actualX += 712;
+        popX += 712;
         i++
-        if (i == 15) {
-            i = 0;
+
+        if (popColor == 'rose') {
+            popColor = 'blue';
+        } else if (popColor == 'blue') {
+            popColor = 'green';
+        } else {
+            popColor = 'rose';
+        }
+
+        if (i == 16) {
             actualX = 331;
             actualY = 0;
-            return 'Ended space';
+            popX = 0;
+            popY = 0;
+            downloadCanvas ();
+            ctx.fillStyle = '#FFFFFF';
+            ctx.clearRect(0,0,3508,2480);
+            ctx.fillRect(0,0,3508,2480);
+            i = 0;
         }else if (i == 10) {
             actualX = 331;
             actualY = 1687;
+            popX = 0;
+            popY = 1687;
         }
         else if (i == 5) {
             actualX = 331;
             actualY = 844;
+            popX = 0;
+            popY = 844;
         }
     }
-    
+    downloadCanvas();
+}
+
+function downloadCanvas () {
+    let canvasDownload = document.createElement('a');
+    canvasDownload.download = 'pops-mini.jpeg';
+    canvasDownload.href = canvas.toDataURL('image/jpeg', 1);
+    canvasDownload.click();
 }
 
 let pops = [];
-
-// pops[0] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-10-15',
-//     endDate: '2023-10-18'
-// }
-// pops[1] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[2] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[3] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[4] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[5] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[6] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[7] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[8] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[9] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[10] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[11] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[12] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[13] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
-// pops[14] = {
-//     sku:1000065973,
-//     name: 'MARC PERMANENTES SHARPIE',
-//     regularPrice: 253,
-//     promotionalPrice: 152.80,
-//     startDate: '2023-05-15',
-//     endDate: '2023-05-18'
-// }
 
 function pop (sku, name, regPrice, promPrice, startDate, endDate) {
     this.sku = sku;
@@ -184,5 +96,47 @@ function addPop () {
             endDateObj.value
             )
         );
+    addPopInformation();
     console.log(pops);
+}
+
+let popCounter = 0;
+
+function addPopInformation () {
+    createPopInformation(
+            pops[popCounter].sku,
+            pops[popCounter].name,
+            '$' + Number(pops[popCounter].regularPrice).toFixed(2),
+            '$' + Number(pops[popCounter].promotionalPrice).toFixed(2),
+            pops[popCounter].startDate,
+            pops[popCounter].endDate,
+        );
+        popCounter++;
+}
+
+function createPopInformation (sku, name, price, promo, start, end) {
+    const popInformation = document.createElement('div');
+    popInformation.classList.add('pops_information');
+    const skuInfo = document.createElement('span');
+    skuInfo.innerText = sku;
+    const nameInfo = document.createElement('span');
+    nameInfo.classList.add('pops_information_name');
+    nameInfo.innerText = name;
+    const priceInfo = document.createElement('span');
+    priceInfo.innerText = price;
+    const promoInfo = document.createElement('span');
+    promoInfo.innerText = promo;
+    const startInfo = document.createElement('span');
+    startInfo.innerText = start;
+    const endInfo = document.createElement('span');
+    endInfo.innerText = end;
+
+    popInformation.appendChild(skuInfo);
+    popInformation.appendChild(nameInfo);
+    popInformation.appendChild(priceInfo);
+    popInformation.appendChild(promoInfo);
+    popInformation.appendChild(startInfo);
+    popInformation.appendChild(endInfo);
+
+    popInfoContainer.appendChild(popInformation);
 }
